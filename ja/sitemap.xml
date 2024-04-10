@@ -201,6 +201,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://awslabs.github.io/stable-diffusion-aws-extension/user-guide/extensions-guide/</loc>
+         <lastmod>2024-04-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://awslabs.github.io/stable-diffusion-aws-extension/user-guide/img2img-guide/</loc>
          <lastmod>2024-04-10</lastmod>
          <changefreq>daily</changefreq>
