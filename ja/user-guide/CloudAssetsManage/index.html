@@ -940,7 +940,16 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      新しいエンドポイントのデプロイ
+      新しいエンドポイントをデプロイ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      デプロイされたエンドポイントを削除
     </span>
   </a>
   
@@ -1514,7 +1523,16 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      新しいエンドポイントのデプロイ
+      新しいエンドポイントをデプロイ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      デプロイされたエンドポイントを削除
     </span>
   </a>
   
@@ -1546,65 +1564,124 @@
 <h1 id="_1">メインタブ</h1>
 <p>このチャプターでは、このソリューションが提供する便利なクラウドベースのリソース管理アプローチの詳細な概要を説明します。</p>
 <h2 id="_2">モデルのアップロード</h2>
-<p>推論用の追加モデルを使用するには、以下の2つの方法でモデルをアップロードできます。それぞれ <a href="../txt2img-guide/">txt2img</a> または <a href="../img2img-guide/">img2img</a> のガイドに従って、必要に応じて追加モデルを使用して推論を行います。</p>
-<p>方法 1: 
-1. Stable Diffusion WebUI の「 Amazon SageMaker 」メインタブに移動し、「 Cloud Models Management 」セッションを見つけます。<img alt="WebUI からのモデルアップロード " src="../../images/UploadFromWebUI.png" /> 
-2. 「 from WebUI 」タブを選択します。これは、WebUI サービスがデプロイされているモデルファイルパスからモデルをアップロードすることを意味します。
-3. 対応するモデルのテキストボックスに、WebUI サービスがデプロイされているモデルのパスを入力します。（<strong>注意</strong>: 複数のローカルモデルパスをテキストボックスに入力することで、複数種類のモデルをアップロードできます。）
-4. 「 Upload Models to Cloud 」をクリックしてアップロードプロセスを開始します。
-5. アップロードが完了すると、左右に通知メッセージが表示されます。</p>
-<p>方法 2: 
-1. Stable Diffusion WebUI の「 Amazon SageMaker 」メインタブに移動し、「 Cloud Models Management 」セッションを見つけます。<img alt=" コンピュータからのモデルアップロード " src="../../images/UploadFromComputer.png" /> 
-2. 「 from Laptop 」タブを選択します。これは、WebUI にアクセスするためのローカルパスからモデルをアップロードすることを意味します。
-3. アップロードするモデルのタイプを選択します。現在、6種類のモデルがサポートされています : SD チェックポイント、Textual Inversion、LoRA モデル、ControlNet モデル、Hypernetwork、VAE 
-4. ローカルで選択したモデルファイルをアップロードします。（<strong>注意</strong>: 複数のモデルを選択できますが、ブラウザの制限により、10 ファイル以内、合計サイズは 8GB 以内にすることをお勧めします。）
-5. 「 Upload Models to Cloud 」をクリックしてアップロードプロセスを開始します。
-6. アップロードは、ファイルサイズと数量に応じて非同期的に分割されます。各部分のアップロードが完了するたびに、「 Choose File 」ボタンの下に通知が表示されます。</p>
-<p>方法 3: 
-1. Stable Diffusion WebUI の「 Amazon SageMaker 」メインタブに移動し、「 Cloud Models Management 」セッションを見つけます。
-2. 「 from URL 」タブを選択します。このオプションにより、モデルがダウンロードされている URL から S3 にモデルをアップロードできます。<img alt="URL からのモデルアップロード " src="../../images/UploadFromURL.png" /> 
-3. アップロードするモデルのタイプを選択します。現在、6種類のモデルがサポートされています : SD チェックポイント、Textual Inversion、LoRA モデル、ControlNet モデル、Hypernetwork、VAE 
-4. 「 URL list (Comma-separated in English) 」入力ボックスに、コンマ区切りの形式で複数のモデルダウンロード URL を入力します。
-5. 「 Models Description (Optional) 」入力ボックスに、JSON フォーマットの説明(オプション)を入力します。（<strong>注意</strong>: 複数のモデルファイルを選択できますが、Lambda のメモリとスレッド制限により、5ファイル以内、合計サイズ 12GB 以内にすることをお勧めします。）
-6. 「 Upload Models to Cloud 」をクリックしてモデルのアップロードプロセスを開始します。
-7. 「 Label 」セクション下に、アップロードリクエストの進捗状況を示す通知が表示されます。</p>
-<h2 id="amazon-sagemaker">Amazon SageMaker エンドポイント管理</h2>
-<h3 id="_3">新しいエンドポイントのデプロイ</h3>
+<p>推論に追加のモデルを使用するには、2つの方法でモデルをアップロードし、<a href="../txt2img-guide/">txt2img</a>または<a href="../img2img-guide/">img2img</a>のステップに従って必要に応じて追加のモデルで推論を行うことができます。</p>
+<p>方法1:</p>
 <ol>
-<li>ソリューションの「 Amazon SageMaker 」メインタブに移動します。「 Cloud Assets Management 」モジュールで、「 Deploy New SageMaker Endpoint 」セクションを見つけます。</li>
-<li>ソリューションのデフォルトのデプロイメントタイプは ml.g5.2xlarge で、インスタンス数は1つです。エンドポイントのオートスケーリング機能がデフォルトで有効になっています。「 Deploy 」ボタンをクリックして、SageMaker エンドポイントのデプロイを開始します。</li>
-<li>エンドポイント名、インスタンスタイプ、インスタンスの最大数を指定したい場合は、「 Advanced Endpoint Configuration 」チェックボックスをオンにします。これにより、ユーザー入力用の追加パラメーターが表示されます。これらのパラメーターの名称と説明は以下の表のとおりです:</li>
+<li>Stable Diffusion WebUI で、ソリューションのメインタブ<strong>Amazon SageMaker</strong>に移動し、セッション<strong>Cloud Models Management</strong>を見つけます。
+<img alt="モデルを S3 にアップロード" src="../../images/UploadFromWebUI.png" /></li>
+<li><strong>from WebUI</strong>タブを選択すると、WebUI サービスがデプロイされているモデルファイルパスからモデルをアップロードできます。</li>
+<li>対応するモデルのテキストボックスに WebUI サービスがデプロイされているモデルパスを入力します。<blockquote>
+<p><strong>注意</strong>: 複数のモデルパスをテキストボックスに入力することで、複数の種類のモデルをアップロードできます。</p>
+</blockquote>
+</li>
+<li><strong>Upload Models to Cloud</strong>をクリックしてアップロードプロセスを開始します。</li>
+<li>アップロードが完了するとメッセージが表示されます。</li>
 </ol>
+<p>方法2:</p>
+<ol>
+<li>Stable Diffusion WebUI で、ソリューションのメインタブ<strong>Amazon SageMaker</strong>に移動し、セッション<strong>Cloud Models Management</strong>を見つけます。
+<img alt="モデルを S3 にアップロード" src="../../images/UploadFromComputer.png" /></li>
+<li><strong>from Laptop</strong>タブを選択すると、WebUI にアクセスするローカルパスからモデルをアップロードできます。</li>
+<li>アップロードするモデルの種類を選択します。現在サポートされているのは6種類:SD チェックポイント、Textual Inversion、LORS モデル、ControlNet モデル、Hypernetwork、VAE です。</li>
+<li>アップロードするローカルのモデルファイルを選択します。<blockquote>
+<p><strong>注意</strong>: 複数のモデルを選択できますが、ブラウザの制限により、10 個以下を選択し、合計サイズが 8GB を超えないのが最適です。</p>
+</blockquote>
+</li>
+<li><strong>Upload Models to Cloud</strong>をクリックしてアップロードプロセスを開始します。</li>
+<li>アップロードは非同期にファイルサイズと数量に応じて分割されて行われます。各部分のアップロードが完了するごとに、<strong>Choose File</strong>ボタンの下にプロンプトが表示されます。</li>
+</ol>
+<p>方法3:</p>
+<ol>
+<li>Stable Diffusion WebUI で、<strong>Amazon SageMaker</strong>メインタブに移動し、セッション<strong>Cloud Models Management</strong>を見つけます。</li>
+<li><strong>from URL</strong>タブを選択します。このオプションを使うと、モデルがダウンロードされている URL から S3 にモデルをアップロードできます。
+<img alt="モデルを S3 にアップロード" src="../../images/UploadFromURL.png" /></li>
+<li>アップロードするモデルの種類を選択します。現在、6種類がサポートされています:SD チェックポイント、Textual Inversion、LORS モデル、ControlNet モデル、Hypernetwork、VAE。</li>
+<li><strong>URL list (Comma-separated in English)</strong>入力ボックスに、コンマ区切りでモデルダウンロードの URL リストを入力します。</li>
+<li><strong>Models Description (Optional)</strong>入力ボックスに、JSON 形式の説明(オプション)を入力します。<blockquote>
+<p><strong>注意</strong>: 複数のモデルファイルを選択できますが、5ファイル以内、合計サイズが 12GB を超えないことを推奨します。これは、Lambda のメモリと並行スレッドの制限によるものです。</p>
+</blockquote>
+</li>
+<li><strong>Upload Models to Cloud</strong>をクリックしてモデルのアップロードプロセスを開始します。</li>
+<li><strong>Label</strong>セクションの下にプロンプトが表示され、アップロードリクエストの進捗状況がわかります。</li>
+</ol>
+<h2 id="amazon-sagemaker">Amazon SageMaker エンドポイント管理</h2>
+<h3 id="_3">新しいエンドポイントをデプロイ</h3>
+<ol>
+<li>ソリューションの<strong>Amazon SageMaker</strong>メインタブに移動します。<strong>Cloud Assets Management</strong>モジュールで、<strong>Deploy New SageMaker Endpoint</strong>セクションを見つけます。</li>
+<li>ソリューションのデフォルトのデプロイメントタイプは ml.g5.2xlarge、インスタンス数は1つです。エンドポイントの自動スケーリング機能はデフォルトで有効になっています。<strong>Deploy</strong>ボタンをクリックするだけで SageMaker エンドポイントのデプロイを開始できます。</li>
+<li>
+<p>ユーザーがエンドポイント名、インスタンスタイプ、エンドポイントインスタンスの最大インスタンス数を指定したい場合は、<strong>Advanced Endpoint Configuration</strong>チェックボックスをオンにします。これにより、ユーザー入力用の追加パラメーターが表示されます。これらのパラメーターの名称と説明は次の表の通りです。</p>
 <table>
 <thead>
 <tr>
-<th>パラメータ名</th>
+<th>パラメーター名</th>
 <th>説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>エンドポイント名(オプション )</td>
-<td>SageMaker エンドポイントに名前を付ける必要がある場合は、ここに入力します。変更しない場合は、デフォルトのエンドポイント名が使用されます (esd-type-XXXXX)。</td>
+<td>Endpoint Name (Optional)</td>
+<td>SageMaker エンドポイントの名称を指定する必要がある場合は、このテキストボックスに入力してください。変更しない場合、デフォルトのエンドポイント名が esd-type-XXXXX となります。</td>
 </tr>
 <tr>
-<td>エンドポイントタイプ</td>
-<td>デプロイされたエンドポイントの推論タイプ (Async/Real-time) を選択します。</td>
+<td>Endpoint Type</td>
+<td>デプロイするエンドポイントの推論タイプ(Async/Real-time)を選択します。</td>
 </tr>
 <tr>
-<td>インスタンスタイプ</td>
-<td>ドロップダウンリストから、デプロイされるエンドポイントのインスタンスタイプを選択します。</td>
+<td>Instance Type</td>
+<td>ドロップダウンリストから、デプロイするエンドポイントのインスタンスタイプを選択します。</td>
 </tr>
 <tr>
-<td>最大インスタンス数</td>
-<td>ドロップダウンリストから、デプロイされるエンドポイントの最大インスタンス数を選択します。オートスケーリングが選択された場合、SageMaker は平均 CPU の使用率に基づいて0から最大インスタンス数までのインスタンス数を弾力的にスケーリングします。</td>
+<td>Max Instance Number</td>
+<td>ドロップダウンリストから、デプロイするエンドポイントの最大インスタンス数を選択します。自動スケーリングが有効な場合、SageMaker は平均 CPU の使用率に応じて0から最大インスタンス数までスケーリングします。</td>
 </tr>
 <tr>
-<td>オートスケーリングを有効化</td>
-<td>このチェックボックスを選択すると、非同期推論ではインスタンスごとの平均待ちバックログに基づいて0から最大インスタンス数まで弾力的にスケーリングし、リアルタイム推論ではインスタンスごとの平均呼び出し数に基づいて1から最大インスタンス数まで弾力的にスケ</td>
+<td>Enable Autoscaling</td>
+<td>このチェックボックスを選択すると、非同期推論では各インスタンスの平均バックログに応じて0から最大インスタンス数までスケーリし、リアルタイム推論では1から最大インスタンス数までスケーリします。</td>
+</tr>
+<tr>
+<td>Min Instance Number</td>
+<td>自動スケーリングが有効な場合、この値がエンドポイントインスタンスの最小数となります。</td>
 </tr>
 </tbody>
 </table>
+</li>
+<li>
+<p>デフォルトのエンドポイント設定を選択するか、高度なエンドポイント設定を設定した後、<strong>Deploy</strong>をクリックします。<strong>Label</strong>の下に<strong>Endpoint deployment started</strong>というメッセージが表示されます。
+<img alt="新しいエンドポイントをデプロイ" src="../../images/Deploy-new-endpoint.png" /></p>
+</li>
+<li><strong>txt2img</strong>タブ、<strong>Amazon SageMaker Inference</strong>セッションに移動し、ドロップダウンリスト<strong>Select Cloud SageMaker Endpoint</strong>を更新すると、すべてのエンドポイントのデプロイ状況を確認できます。<blockquote>
+<p><strong>注意:</strong> ドロップダウンリストの形式は：エンドポイント名+ デプロイメントステータス(Creating/Failed/InService など)+デプロイ完了時間です。</p>
+</blockquote>
+</li>
+<li>エンドポイントのデプロイ状況が<em>InService</em>に変わるまでには約3分かかります。これはエンドポイントが正常にデプロイされたことを示します。</li>
+</ol>
+<h3 id="_4">デプロイされたエンドポイントを削除</h3>
+<ol>
+<li><strong>Select Cloud SageMaker Endpoint</strong>ドロップダウンリストを更新し、削除するエンドポイントを選択します。</li>
+<li><strong>Delete</strong>をクリックすると、<strong>Endpoint delete completed</strong>というメッセージが左側に表示され、選択したエンドポイントが正常に削除されたことを示します。</li>
+</ol>
+<h1 id="aws">AWS データセット管理</h1>
+<h2 id="_5">データセットの作成</h2>
+<p>モデルのファインチューニングなどの機能では、ファインチューニング作業に使用する画像ファイルを提供する必要があります。この機能モジュールは、ユーザーがクラウドに迅速に画像をアップロードするのを支援します。</p>
+<ol>
+<li>
+<p><strong>Amazon SageMaker</strong>メインタブ、<strong>AWS Dataset Management</strong>セクション、<strong>Create</strong>タブに移動します。
+<img alt="S3 にデータセットを作成" src="../../images/Dataset_management.png" /></p>
+</li>
+<li>
+<p><strong>Click to Upload a File</strong>をクリックし、ポップアップする
+ローカルのファイルブラウザから、1つのモデルのファインチューニングに必要なすべての画像を選択して確認します。</p>
+</li>
+<li><strong>Dataset Name</strong>にファイル名を入力し、<strong>Dataset Description</strong>に説明を入力して、<strong>Create Dataset</strong>をクリックします。</li>
+<li>プロセスが完了すると、右側に<strong>Complete Dataset XXXX creation</strong>のメッセージが表示されます。</li>
+</ol>
+<h2 id="_6">データセットの参照</h2>
+<p>データセットのアップロードが完了すると、この機能モジュールにより、ユーザーはデータセットの対応するクラウドアドレスを迅速に取得できます。ユーザーはこのアドレスをコピーし、画像の収集場所に貼り付けることができます。</p>
+<ol>
+<li><strong>Amazon SageMaker</strong>、<strong>AWS Dataset Management</strong>セッション、<strong>Browse</strong>タブに移動し、<strong>Dataset From Cloud</strong>リストを更新し、目的のデータセットを選択します。</li>
+<li><strong>dataset s3 location</strong>フィールドにクラウド上の S3 パスが表示されます。必要に応じてこのパスをコピーして使用できます。</li>
+</ol>
 
 
 
