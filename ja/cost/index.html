@@ -431,6 +431,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    コスト
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -440,6 +451,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-sagemaker" class="md-nav__link">
+    <span class="md-ellipsis">
+      自動スケーリング Amazon SageMaker 推論エンドポイントを使用してイメージを推論する
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-sagemaker_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon SageMaker を使用してモデルをトレーニングする
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1421,6 +1469,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-sagemaker" class="md-nav__link">
+    <span class="md-ellipsis">
+      自動スケーリング Amazon SageMaker 推論エンドポイントを使用してイメージを推論する
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-sagemaker_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon SageMaker を使用してモデルをトレーニングする
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1439,8 +1513,8 @@
 
 <h1 id="_1">コスト</h1>
 <p>このソリューションを実行する際の AWS サービスの使用コストは、あなたの責任となります。</p>
-<p>## 自動スケーリング Amazon SageMaker 推論エンドポイントを使用してイメージを推論する
- 2023 年 12 月時点の例として、1日8時間、月 20 営業日の画像推論を行う場合(標準的な Stable Diffusion XL モデルを使用して 1024 X 1024 の画像を生成するのに平均7秒かかると仮定。この実行時間で1ヶ月で 72,000 枚の画像を生成できます)、米国東部(バージニア )(us-east-1) でこのソリューションを使用した場合の推定月額コストは <strong>$310.45</strong> です。</p>
+<h2 id="amazon-sagemaker">自動スケーリング Amazon SageMaker 推論エンドポイントを使用してイメージを推論する</h2>
+<p>2023 年 12 月時点の例として、1日8時間、月 20 営業日の画像推論を行う場合(標準的な Stable Diffusion XL モデルを使用して 1024 X 1024 の画像を生成するのに平均7秒かかると仮定。この実行時間で1ヶ月で 72,000 枚の画像を生成できます)、米国東部(バージニア )(us-east-1) でこのソリューションを使用した場合の推定月額コストは <strong>$310.45</strong> です。</p>
 <table>
 <thead>
 <tr>
@@ -1492,8 +1566,8 @@
 </tr>
 </tbody>
 </table>
-<p>## Amazon SageMaker を使用してモデルをトレーニングする
-推論画像をもとに、ユーザーが月間 300 時間のトレーニングを行うと仮定した場合 (Kohya を使用して、Stable Diffusion V1.5 ベースの新しい safetensor モデルをファインチューニングする。1,000 ステップの反復で 387 秒かかる。300 時間のトレーニングは1ヶ月で <strong>2,790 モデル</strong> をトレーニングできます)、このソリューションを使用する際のコストは米国東部(バージニア)(us-east-1) で <strong>$526.18</strong> 増加します。</p>
+<h2 id="amazon-sagemaker_1">Amazon SageMaker を使用してモデルをトレーニングする</h2>
+<p>推論画像をもとに、ユーザーが月間 300 時間のトレーニングを行うと仮定した場合 (Kohya を使用して、Stable Diffusion V1.5 ベースの新しい safetensor モデルをファインチューニングする。1,000 ステップの反復で 387 秒かかる。300 時間のトレーニングは1ヶ月で <strong>2,790 モデル</strong> をトレーニングできます)、このソリューションを使用する際のコストは米国東部(バージニア)(us-east-1) で <strong>$526.18</strong> 増加します。</p>
 <table>
 <thead>
 <tr>

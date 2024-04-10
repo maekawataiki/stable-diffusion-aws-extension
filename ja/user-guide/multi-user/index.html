@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#api" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -853,6 +858,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    API とユーザー管理の設定
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -863,6 +881,100 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      API の設定
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      マルチユーザー管理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="マルチユーザー管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロール管理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      アクセス許可の説明
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      ユーザー管理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ユーザー管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      新規ユーザーの追加
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      既存ユーザーの管理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1413,6 +1525,91 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      API の設定
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      マルチユーザー管理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="マルチユーザー管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロール管理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      アクセス許可の説明
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      ユーザー管理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ユーザー管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      新規ユーザーの追加
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      既存ユーザーの管理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1430,10 +1627,8 @@
   
 
 
-  <h1>API とユーザー管理の設定</h1>
-
-<p># API とマルチユーザーの設定</p>
-<p>## API の設定</p>
+<h1 id="api">API とマルチユーザーの設定</h1>
+<h2 id="api_1">API の設定</h2>
 <ol>
 <li>AWS CloudFormation コンソールを開き、正常にデプロイされたメインスタックを選択してください。</li>
 <li>「 Outputs 」タブに移動し、「 APIGatewayUrl 」と「 ApiGatewayUrlToken 」の情報をコピーしてください。</li>
@@ -1441,11 +1636,11 @@
 <li>「正常に接続されました。設定が更新されました」というメッセージが表示されたら、フロントエンド UI が正常にバックエンドクラウドリソースに接続されたことを示しています。設定ファイルは、今後 WebUI を起動する際に自動的に対応する情報を表示するように更新されています。</li>
 <li>全ての機能に変更が反映されるよう、WebUI をバックグラウンドで再起動してください。</li>
 </ol>
-<p>## マルチユーザー管理
- IT オペレーターロールのユーザーがログインし、「 Amazon SageMaker 」タブの「 API とユーザー設定」サブタブに移動すると、ロールとユーザーを管理できます。</p>
-<p>### ロール管理
-「ロール管理」タブでは、ロールの表示、作成、対応するアクセス許可の設定ができます。新しいロールを作成したら、「次のページ」をクリックするか、ページを更新して「ロールテーブル」に反映させてください。</p>
-<p>### アクセス許可の説明</p>
+<h2 id="_1">マルチユーザー管理</h2>
+<p>IT オペレーターロールのユーザーがログインし、「 Amazon SageMaker 」タブの「 API とユーザー設定」サブタブに移動すると、ロールとユーザーを管理できます。</p>
+<h3 id="_2">ロール管理</h3>
+<p>「ロール管理」タブでは、ロールの表示、作成、対応するアクセス許可の設定ができます。新しいロールを作成したら、「次のページ」をクリックするか、ページを更新して「ロールテーブル」に反映させてください。</p>
+<h3 id="_3">アクセス許可の説明</h3>
 <table>
 <thead>
 <tr>
@@ -1487,17 +1682,23 @@
 </tr>
 </tbody>
 </table>
-<p>### ユーザー管理</p>
-<p>#### 新規ユーザーの追加
- 1. 必要に応じて新しいユーザー、パスワード、ロールを作成してください。「次のページ」をクリックすると、新しく作成されたユーザーが表示されます。Web UI サーバーに新規ユーザーに関する設定変更を反映させるには、Web UI を再起動する必要があります。
- <img alt=" ユーザーの追加 " src="../../images/multi_user/multi-user-8.png" /> </p>
+<h3 id="_4">ユーザー管理</h3>
+<h4 id="_5">新規ユーザーの追加</h4>
 <ol>
-<li>別のシークレットブラウザを開き、新しく作成したユーザー名とパスワードでログインしてください。</li>
+<li>
+<p>必要に応じて新しいユーザー、パスワード、ロールを作成してください。「次のページ」をクリックすると、新しく作成されたユーザーが表示されます。Web UI サーバーに新規ユーザーに関する設定変更を反映させるには、Web UI を再起動する必要があります。
+<img alt=" ユーザーの追加 " src="../../images/multi_user/multi-user-8.png" /> </p>
+</li>
+<li>
+<p>別のシークレットブラウザを開き、新しく作成したユーザー名とパスワードでログインしてください。</p>
+</li>
 <li>Amazon SageMaker タブにアクセスすると、ユーザーによって表示されるコンテンツが異なることがあります。</li>
 </ol>
-<p>#### 既存ユーザーの管理
- 1. 「ユーザーテーブル」から更新対象のユーザーを選択し、「パスワード」や「ユーザーロール」の更新が行えます。ユーザー情報は「ユーザー設定の更新」フィールドに表示されます。
- 2. 必要に応じてフィールドを更新し、「ユーザーの追加/更新」をクリックして変更を保存してください。削除する場合は「ユーザーの削除」をクリックします。</p>
+<h4 id="_6">既存ユーザーの管理</h4>
+<ol>
+<li>「ユーザーテーブル」から更新対象のユーザーを選択し、「パスワード」や「ユーザーロール」の更新が行えます。ユーザー情報は「ユーザー設定の更新」フィールドに表示されます。</li>
+<li>必要に応じてフィールドを更新し、「ユーザーの追加/更新」をクリックして変更を保存してください。削除する場合は「ユーザーの削除」をクリックします。</li>
+</ol>
 
 
 

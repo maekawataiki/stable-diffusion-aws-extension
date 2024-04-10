@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#url" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1089,6 +1094,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    APIチェックポイントアップロードプロセス
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1098,6 +1114,41 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    <span class="md-ellipsis">
+      URL からのアップロード
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ファイルからのアップロード
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1414,6 +1465,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    <span class="md-ellipsis">
+      URL からのアップロード
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ファイルからのアップロード
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1432,12 +1509,16 @@
 
   <h1>APIチェックポイントアップロードプロセス</h1>
 
-<p>### URL からのアップロード
- - <code>CreateCheckpoint</code> リクエスト</p>
-<p>### ファイルからのアップロード
-- モデルファイルを作成するために <code>CreateCheckpoint</code> リクエストを行う
- - S3 の事前署名付きアドレスを通じてファイルをアップロードする
- - <code>UpdateCheckpoint</code> を通じてステータスを更新する</p>
+<h3 id="url">URL からのアップロード</h3>
+<ul>
+<li><code>CreateCheckpoint</code> リクエスト</li>
+</ul>
+<h3 id="_1">ファイルからのアップロード</h3>
+<ul>
+<li>モデルファイルを作成するために <code>CreateCheckpoint</code> リクエストを行う</li>
+<li>S3 の事前署名付きアドレスを通じてファイルをアップロードする</li>
+<li><code>UpdateCheckpoint</code> を通じてステータスを更新する</li>
+</ul>
 
 
 

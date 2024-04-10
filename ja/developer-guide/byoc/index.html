@@ -1441,13 +1441,13 @@
 
 <hr />
 <p>title: カスタムコンテナ
- language_tabs: 
- - shell: シェル
- language_clients: 
- - shell: "" 
- toc_footers: [] 
- Includes: [] 
- HeadingLevel: 2 </p>
+language_tabs: 
+- shell: シェル
+language_clients: 
+- shell: "" 
+toc_footers: [] 
+Includes: [] 
+HeadingLevel: 2 </p>
 <hr />
 <!-- Generator: Widdershins v4.0.1 -->
 
@@ -1467,20 +1467,20 @@
 <div class="highlight"><pre><span></span><code><span class="o">{</span>your_account_id<span class="o">}</span>.dkr.ecr.<span class="o">{</span>region<span class="o">}</span>.amazonaws.com/your-image:latest<span class="w"> </span>
 </code></pre></div>
 <p>Dockerfile テンプレート:</p>
-<p>```dockerfile </p>
-<h1 id="_3">ソリューションによって作成されたイメージをベースイメージとして使用することをお勧めします。</h1>
-<p>FROM {your_account_id}.dkr.ecr.{region}.amazonaws.com/stable-diffusion-aws-extension/aigc-webui-inference:latest </p>
-<h1 id="_4">拡張機能をダウンロード</h1>
-<p>RUN mkdir -p /opt/ml/code/extensions/ &amp;&amp; \ 
-    cd /opt/ml/code/extensions/ &amp;&amp; \ 
-    git clone https://github.com/**.git </p>
-<p>``` </p>
+<div class="highlight"><pre><span></span><code><span class="c"># ソリューションによって作成されたイメージをベースイメージとして使用することをお勧めします。</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">{your_account_id}.dkr.ecr.{region}.amazonaws.com/stable-diffusion-aws-extension/aigc-webui-inference:latest</span><span class="w"> </span>
+
+<span class="c"># 拡張機能をダウンロード</span>
+<span class="k">RUN</span><span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/opt/ml/code/extensions/<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\ </span>
+<span class="w">   </span><span class="nb">cd</span><span class="w"> </span>/opt/ml/code/extensions/<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\ </span>
+<span class="w">   </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/**.git<span class="w"> </span>
+</code></pre></div>
 <p><br> </p>
-<h1 id="_5">カスタムコンテナイメージを使用してエンドポイントを作成</h1>
+<h1 id="_3">カスタムコンテナイメージを使用してエンドポイントを作成</h1>
 <p><code>byoc</code> という名前のロールを作成し、ログインしたユーザーをそのロールに追加して、以下の画像に示す機能を有効にします:</p>
 <p><img alt="UpdateImage" src="../../images/byoc.png" /> </p>
 <p><br> </p>
-<h1 id="_6">コンテナイメージが機能しているかを確認または診断</h1>
+<h1 id="_4">コンテナイメージが機能しているかを確認または診断</h1>
 <p>コンテナイメージが置き換わった後、SageMaker エンドポイントのログを確認して、コンテナイメージが正しく機能しているかを確認するか、問題の原因を診断することができます:</p>
 <ul>
 <li><strong>{region}</strong>: ソリューションがデプロイされている地域、例 : <code>us-east-1</code> </li>

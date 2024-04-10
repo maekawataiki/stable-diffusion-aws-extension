@@ -794,7 +794,7 @@
           <li class="md-nav__item">
   <a href="#0-linux-stable-diffusion-webui-linux" class="md-nav__link">
     <span class="md-ellipsis">
-      ステップ 0 - Linux: Stable Diffusion WebUI をデプロイする (Linux)。
+      ステップ 0 - Linux: Stable Diffusion WebUI をデプロイする(Linux)
     </span>
   </a>
   
@@ -803,7 +803,7 @@
           <li class="md-nav__item">
   <a href="#0-windows-stable-diffusion-webui-windows" class="md-nav__link">
     <span class="md-ellipsis">
-      ステップ 0 - Windows: Stable Diffusion WebUI をデプロイする (Windows)。
+      ステップ 0 - Windows: Stable Diffusion WebUI をデプロイする(Windows)
     </span>
   </a>
   
@@ -812,16 +812,7 @@
           <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      ステップ 1: ミドルウェアとしてソリューションをデプロイする。
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-api-url-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      ステップ 2: API URL と API トークンを設定する。
+      ステップ1: ミドルウェアとしてソリューションをデプロイする
     </span>
   </a>
   
@@ -1553,7 +1544,7 @@
           <li class="md-nav__item">
   <a href="#0-linux-stable-diffusion-webui-linux" class="md-nav__link">
     <span class="md-ellipsis">
-      ステップ 0 - Linux: Stable Diffusion WebUI をデプロイする (Linux)。
+      ステップ 0 - Linux: Stable Diffusion WebUI をデプロイする(Linux)
     </span>
   </a>
   
@@ -1562,7 +1553,7 @@
           <li class="md-nav__item">
   <a href="#0-windows-stable-diffusion-webui-windows" class="md-nav__link">
     <span class="md-ellipsis">
-      ステップ 0 - Windows: Stable Diffusion WebUI をデプロイする (Windows)。
+      ステップ 0 - Windows: Stable Diffusion WebUI をデプロイする(Windows)
     </span>
   </a>
   
@@ -1571,16 +1562,7 @@
           <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      ステップ 1: ミドルウェアとしてソリューションをデプロイする。
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-api-url-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      ステップ 2: API URL と API トークンを設定する。
+      ステップ1: ミドルウェアとしてソリューションをデプロイする
     </span>
   </a>
   
@@ -1611,84 +1593,66 @@
 
   <h1>デプロイ手順</h1>
 
-<p>ソリューションを起動する前に、このガイドで説明されているアーキテクチャ、サポートされるリージョン、その他の考慮事項を確認してください。このセクションの手順に従って、アカウントにソリューションを設定およびデプロイしてください。</p>
-<p><strong>デプロイ時間</strong>: 約 20 分。</p>
+<p>ソリューションを起動する前に、このガイドで説明されているアーキテクチャ、対応地域、その他の考慮事項を確認してください。このセクションのステップバイステップの手順に従って、アカウントにソリューションを構成およびデプロイしてください。</p>
+<p><strong>デプロイ時間</strong>: 約 20 分です。</p>
 <h2 id="_1">前提条件</h2>
-<p>ユーザーは事前に Linux システムを稼働させるコンピューターを用意する必要があります。</p>
+<p>ユーザーは事前に Linux システムが動作するコンピューターを用意する必要があります。</p>
 <h2 id="_2">デプロイの概要</h2>
-<p>次の手順を使用して、このソリューションを AWS にデプロイします。</p>
+<p>AWS 上にこのソリューションをデプロイするには、次の手順に従ってください。</p>
 <ul>
-<li>ステップ 0: Stable Diffusion webUI をデプロイする (まだ Stable Diffusion webUI をデプロイしていない場合)。</li>
+<li>ステップ 0: Stable Diffusion webUI をデプロイする(まだ Stable Diffusion webUI をデプロイしていない場合)。</li>
 <li>ステップ1: ミドルウェアとしてソリューションをデプロイする。</li>
-<li>ステップ 2: API URL と API トークンを設定する。</li>
+<li>ステップ 2: API URL と API トークンを構成する。</li>
 </ul>
 <div class="admonition important">
 <p class="admonition-title">注意</p>
-<p>このソリューションには 2 つの使用オプションがあります: UI インターフェイスを介して、およびバックエンド API を直接呼び出して。ステップ0は、ユーザーが UI インターフェイスを使用する場合にのみ実行する必要があります。このステップには、別のオープンソースプロジェクトである Stable Diffusion webUI のインストールが含まれており、これにより、ビジネス操作を webUI を介して実行できるようになります。</p>
+<p>このソリューションには2つの使用オプションがあります: UI インターフェイスを通じて、およびバックエンド API を直接呼び出すことで。ステップ0は、ユーザーが UI インターフェイスを使う場合にのみ実行する必要があります。このステップには別のオープンソースプロジェクトである Stable Diffusion webUI のインストールが含まれており、これにより業務操作を webUI から実行できるようになります。</p>
 </div>
 <h2 id="_3">デプロイの手順</h2>
-<h3 id="0-linux-stable-diffusion-webui-linux">ステップ 0 - Linux: Stable Diffusion WebUI をデプロイする (Linux)。</h3>
+<h3 id="0-linux-stable-diffusion-webui-linux">ステップ 0 - Linux: Stable Diffusion WebUI をデプロイする(Linux)</h3>
 <ol>
-<li><a href="https://console.aws.amazon.com/">AWS Management Console</a> にサインインし、<a href="https://console.aws.amazon.com/cloudformation/home?#/stacks/create/template?stackName=stable-diffusion-aws&amp;templateURL=https://aws-gcr-solutions-us-east-1.s3.amazonaws.com/extension-for-stable-diffusion-on-aws/ec2.yaml">WebUI on EC2</a> を使用してスタックを作成します。</li>
-<li>[Create Stack] ページで、[Next] を選択します。</li>
-<li>[Specify stack details] ページで、[Stack name] ボックスにスタック名を入力し、必要に応じてパラメータを調整し、[Next] を選択します。</li>
-<li>[Configure stack options] ページで、[Next] を選択します。</li>
-<li>[Review] ページで、スタックの詳細を確認し、必要に応じてケイパビリティをチェックし、[Submit] を選択します。</li>
-<li>スタックの作成が完了するまで待機します。</li>
-<li>CloudFormation スタックの出力値を見つけ、[WebUIURL] 値のリンクをクリックして WebUI に移動します。スタックの作成が正常に完了した後、内部設定を完了するために、さらに 30 分待つ必要があることに注意してください。</li>
+<li><a href="https://console.aws.amazon.com/">AWS Management Console</a>にサインインし、<a href="https://console.aws.amazon.com/cloudformation/home?#/stacks/create/template?stackName=stable-diffusion-aws&amp;templateURL=https://aws-gcr-solutions-us-east-1.s3.amazonaws.com/extension-for-stable-diffusion-on-aws/ec2.yaml">WebUI on EC2</a>を使用してスタックを作成します。</li>
+<li>「 Create Stack 」ページで「 Next 」を選択します。</li>
+<li>「 Specify stack details 」ページで、スタック名を Stack name ボックスに入力し、パラメーターを必要に応じて調整してから、「 Next 」を選択します。</li>
+<li>「 Configure stack options 」ページで「 Next 」を選択します。</li>
+<li>「 Review 」ページで、スタックの詳細を確認し、必要に応じて機能を確認し、「 Submit 」を選択します。</li>
+<li>スタックの作成が完了するまで待ちます。</li>
+<li>CloudFormation スタックの出力値を見つけ、「 WebUIURL 」の値のリンクをクリックして WebUI にアクセスします。スタックが正常に作成された後、内部設定が完了するまで約 30 分待つ必要があることに注意してください。</li>
 </ol>
-<h3 id="0-windows-stable-diffusion-webui-windows">ステップ 0 - Windows: Stable Diffusion WebUI をデプロイする (Windows)。</h3>
+<h3 id="0-windows-stable-diffusion-webui-windows">ステップ 0 - Windows: Stable Diffusion WebUI をデプロイする(Windows)</h3>
 <ol>
-<li>Windows サーバーを起動し、RDP 経由でログインします。</li>
-<li><a href="https://docs.aws.amazon.com/en_us/AWSEC2/latest/WindowsGuide/install-nvidia-driver.html">このリンク</a> を参照して、NVIDIA ドライバーをインストールします。</li>
-<li><a href="https://www.python.org/downloads/release/python-3106/">Python のウェブサイト</a> にアクセスし、Python をダウンロードしてインストールします。インストール中に "Add Python to Path" にチェックを入れることを忘れないでください。</li>
-<li><a href="https://git-scm.com/download/win">Git のウェブサイト</a> にアクセスし、Git をダウンロードしてインストールします。</li>
-<li>PowerShell を開き、このプロジェクトのソースコードを <code>git clone https://github.com/awslabs/stable-diffusion-aws-extension</code> を実行してダウンロードします。</li>
-<li>ソースコードディレクトリ内で <code>install.bat</code> を実行します。</li>
-<li>ダウンロードした <code>stable-diffusion-webui</code> フォルダ内で <code>webui-user.bat</code> を実行します。</li>
+<li>Windows サーバーを起動し、RDP を使ってログインします。</li>
+<li><a href="https://docs.aws.amazon.com/en_us/AWSEC2/latest/WindowsGuide/install-nvidia-driver.html">このリンク</a>を参照して、NVIDIA ドライバーをインストールします。</li>
+<li><a href="https://www.python.org/downloads/release/python-3106/">Python ウェブサイト</a>にアクセスし、Python をダウンロードしてインストールします。インストール中に「 Python をパスに追加する」をチェックしてください。</li>
+<li><a href="https://git-scm.com/download/win">Git ウェブサイト</a>にアクセスし、Git をダウンロードしてインストールします。</li>
+<li>PowerShell を開き、<code>git clone https://github.com/awslabs/stable-diffusion-aws-extension</code>を実行してこのプロジェクトのソースコードをダウンロードします。</li>
+<li>ソースコードディレクトリ内で<code>install.bat</code>を実行します。</li>
+<li>ダウンロードした<code>stable-diffusion-webui</code>フォルダ内で<code>webui-user.bat</code>を実行します。</li>
 </ol>
-<h3 id="1">ステップ 1: ミドルウェアとしてソリューションをデプロイする。</h3>
-<p>このオートメーション化された AWS CloudFormation テンプレートは、AWS クラウド上にソリューションをデプロイします。</p>
+<h3 id="1">ステップ1: ミドルウェアとしてソリューションをデプロイする</h3>
+<p>この AWS CloudFormation テンプレートを使用すると、ソリューションを AWS クラウド上に自動的にデプロイできます。</p>
 <ol>
-<li><a href="https://console.aws.amazon.com/">AWS Management Console</a> にサインインし、<a href="https://console.aws.amazon.com/cloudformation/home?#/stacks/create/template?stackName=stable-diffusion-aws&amp;templateURL=https://aws-gcr-solutions.s3.amazonaws.com/stable-diffusion-aws-extension-github-mainline/latest/custom-domain/Extension-for-Stable-Diffusion-on-AWS.template.json">Launch solution in AWS Standard Regions</a> を使用して、AWS CloudFormation テンプレートを起動します。   </li>
-<li>テンプレートは、コンソールにログインした際のデフォルトリージョンで起動します。このソリューションを別の AWS リージョンにデプロイする場合は、コンソールのナビゲーションバーにあるリージョンセレクタを使用してください。</li>
+<li><a href="https://console.aws.amazon.com/">AWS Management Console</a>にサインインし、<a href="https://console.aws.amazon.com/cloudformation/home?#/stacks/create/template?stackName=stable-diffusion-aws&amp;templateURL=https://aws-gcr-solutions.s3.amazonaws.com/stable-diffusion-aws-extension-github-mainline/latest/custom-domain/Extension-for-Stable-Diffusion-on-AWS.template.json">Launch solution in AWS Standard Regions</a>を使用して AWS CloudFormation テンプレートを起動します。</li>
+<li>テンプレートはコンソールにログインするときのデフォルト リージョンで起動されます。別の AWS リージョンでこのソリューションを起動するには、コンソールのナビゲーションバーでリージョンセレクターを使用します。</li>
+<li>「 Create stack 」ページで、「 Amazon S3 URL 」テキストボックスに正しいテンプレート URL が表示されていることを確認し、「次へ」を選択します。</li>
+<li>「 Specify stack details 」ページで、ソリューションスタックに有効で一意のアカウントレベルの名前を割り当てます。</li>
 <li>
-<p>[Create stack] ページで、[Amazon S3 URL] テキストボックスに正しいテンプレート URL が表示されていることを確認し、[Next] を選択します。</p>
-</li>
-<li>
-<p>[Specify stack details] ページで、ソリューションスタックに有効で、アカウントレベルで一意の名前を割り当てます。 </p>
-</li>
-<li>
-<p>[Parameters] ページで、このソリューションで使用するための新しい有効なバケット名を [Bucket] の下に入力します。 [email] の下に将来の通知を受信するための正しい電子メールアドレスを入力します。 [LogLevel] の下で、印刷する Amazon ログレベルを選択します。デフォルトでは、ERROR ログのみが印刷されます。 [SdExtensionApiKey] の下に、英数字の組み合せで 20 文字の文字列を入力します。デフォルトでは 09876543210987654321 です。 [Next] を選択します。</p>
+<p>「 Parameters 」ページで、このソリューションで使用する新しい有効なバケット名を「 Bucket 」の下に入力します。「 email 」の下に通知を受け取るための正しい電子メールアドレスを入力します。「 LogLevel 」の下で、出力したい Amazon ログレベルを選択します。デフォルトでは ERROR ログのみが出力されます。「 SdExtensionApiKey 」の下に、英数字の組み合わせで 20 文字の文字列を入力します。デフォルトでは 0987654321098765432 です。「次へ」を選択します。</p>
 <div class="admonition important">
 <p class="admonition-title">注意</p>
-<p><strong>EcrImageTag</strong> は、ソリューションチームに相談する前に変更しないでください。</p>
+<p>ソリューションチームに確認する前は、「 EcrImageTag 」を変更しないでください。</p>
 </div>
 </li>
 <li>
-<p>[Configure stack options] ページで、[Next] を選択します。</p>
+<p>「 Configure stack options 」ページで「次へ」を選択します。</p>
 </li>
-<li>[Review] ページで、設定を確認して確認します。 AWS Identity and Access Management (IAM) リソースが作成されることを承認するチェックボックスをオンにします。 [Create stack] を選択して、スタックをデプロイします。</li>
+<li>「 Review 」ページで、設定を確認して承認します。AWS Identity and Access Management (IAM)リソースが作成されることを確認するチェックボックスをオンにします。「 Create stack 」を選択してスタックをデプロイします。</li>
 </ol>
-<p>AWS CloudFormation コンソールの [Status] 列でスタックの状態を確認できます。約 15 分後に CREATE_COMPLETE ステータスが受信されるはずです。</p>
+<p>AWSCloudFormation コンソールの「 Status 」列でスタックの状態を確認できます。約 15 分で CREATE_COMPLETE ステータスが表示されるはずです。</p>
 <div class="admonition important">
 <p class="admonition-title">注意</p>
-<p>以前に設定した電子メールアドレスの受信箱を確認し、件名が "AWS Notification - Subscription Confirmation" のメールの "Confirm subscription" ハイパーリンクをクリックして、購読を完了してください。'Subscription confirmed!' というメッセージが表示されます。</p>
+<p>以前に設定したメールアドレスの受信箱を確認し、件名が「 AWS Notification - Subscription Confirmation 」</p>
 </div>
-<h3 id="2-api-url-api">ステップ 2: API URL と API トークンを設定する。</h3>
-<p>スタックの作成が成功したら、<a href="../../user-guide/multi-user/">ここ</a>を参照して、その後の設定作業を行うことができます。</p>
-<!-- 1. [CloudFormation console](https://console.aws.amazon.com/cloudformation/) に移動します。
-
-2. ソリューションのネストされたスタックではなく、スタックリストから root スタックを選択します。ネストされたスタックの名前の横に (NESTED) と表示されます。
-
- 3. [Outputs] タブを開き、[APIGatewayUrl] および [ApiGatewayUrlToken] に対応する値をコピーします。
-
- 4. Stable Diffusion WebUI の [Amazon SageMaker] タブを開きます。ステップ3で取得した URL を [API URL] テキストボックスに貼り付けます。ステップ3で取得したトークンを [API Token] フィールドに入力します。[Test Connection] をクリックして、[Successfully Connected] の確認メッセージを受け取ります。
-
- 5. [Update Setting] をクリックして設定ファイルを更新し、次回の情報を受け取れるようにします。 -->
-
-<!-- ## 将来のステップ
-スタックの作成が成功したら、AWS CloudFormation の [Outputs] タブに関連情報を見つけることができます。 -->
 
 
 

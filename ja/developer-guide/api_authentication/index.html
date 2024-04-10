@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1152,6 +1157,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    API認証
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1161,6 +1177,50 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      セキュリティ認証
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ユーザー認証
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#140" class="md-nav__link">
+    <span class="md-ellipsis">
+      バージョン 1.4.0 以前
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1414,6 +1474,41 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      セキュリティ認証
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ユーザー認証
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#140" class="md-nav__link">
+    <span class="md-ellipsis">
+      バージョン 1.4.0 以前
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1432,18 +1527,18 @@
 
   <h1>API認証</h1>
 
-<p>## セキュリティ認証</p>
+<h2 id="_1">セキュリティ認証</h2>
 <p>すべての API では API キーによるセキュリティ検証が行われ、すべての API 要求に API キーを HTTP ヘッダーに含める必要があります。<code>x-api-key</code> は以下の通りです:</p>
 <div class="highlight"><pre><span></span><code>X-api-key: xxxxxxxxxxxxxxxxxxxx 
 </code></pre></div>
-<p>## ユーザー認証</p>
+<h2 id="_2">ユーザー認証</h2>
 <p>HTTP ヘッダーに <code>username</code> を含めてください。例えば、WebUI で設定されているユーザー名が <code>admin</code> の場合は以下のようになります:</p>
 <div class="highlight"><pre><span></span><code>username: admin 
 </code></pre></div>
 <blockquote>
 <p>API がデプロイされると、<code>api</code> というユーザーが組み込まれています。WebUI で初期化しない場合や、API でユーザーを新規作成しない場合は、<code>api</code> をユーザー名として使用できます。</p>
 </blockquote>
-<p>## バージョン 1.4.0 以前</p>
+<h2 id="140">バージョン 1.4.0 以前</h2>
 <p><code>Authorization</code> は HTTP ヘッダーに以下のように含める必要があります:</p>
 <div class="highlight"><pre><span></span><code>Authorization: Bearer {TOKEN} 
 </code></pre></div>
@@ -1453,7 +1548,7 @@
 <span class="n">Token</span><span class="o">=</span><span class="n">base64</span><span class="o">.</span><span class="n">b16encode</span> <span class="p">(</span><span class="n">username</span><span class="o">.</span><span class="n">encode</span> <span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span> <span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> 
 </code></pre></div>
 <p>例えば、WebUI で設定されているユーザー名が <code>admin</code> の場合は以下のようになります:
- <div class="highlight"><pre><span></span><code>Authorization: Bearer 61646D696E 
+<div class="highlight"><pre><span></span><code>Authorization: Bearer 61646D696E 
 </code></pre></div></p>
 
 

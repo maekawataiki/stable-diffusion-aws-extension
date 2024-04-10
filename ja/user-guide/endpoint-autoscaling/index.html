@@ -59,6 +59,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#sagemaker" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1390,6 +1395,40 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      概要
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="概要">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sagemaker_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      以下は、SageMaker 非同期エンドポイントの自動スケーリングポリシーの例です:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1407,99 +1446,97 @@
   
 
 
-  <h1>SageMaker 非同期エンドポイントの自動スケーリング</h1>
-
-<p># SageMaker 非同期エンドポイントの自動スケーリング</p>
+<h1 id="sagemaker">SageMaker 非同期エンドポイントの自動スケーリング</h1>
 <p>Amazon SageMaker では、トラフィックパターンの変化に応じて、モデルの推論エンドポイントを自動的にスケーリングする機能が提供されています。このドキュメントでは、このソリューションで作成された Amazon SageMaker 非同期エンドポイントの自動スケーリングの設定について説明します。</p>
-<p>## 概要</p>
+<h2 id="_1">概要</h2>
 <p>このソリューションは、Amazon SageMaker の特定のエンドポイントとバリアントに対して自動スケーリングを有効にします。自動スケーリングは、2つのスケーリングポリシーによって管理されます。</p>
 <ol>
 <li><strong>ターゲットトラッキングスケーリングポリシー</strong>: このポリシーは、<code>CPUUtilization</code> メトリックに基づいて、必要なインスタンス数を調整します。CPU の使用率を 50% に維持することを目標としています。CPU の平均使用率が5分間 50% を超えた場合、アラームがトリガーされ、最大インスタンス数に達するまで SageMaker エンドポイントのスケールアウトが行われます。</li>
 </ol>
 <p>CPU の使用率に基づくスケーリングポリシーは、<code>put_scaling_policy</code> メソッドを使って定義されます。以下のパラメータが指定されています:
-    - <code>TargetValue</code>: 50% CPU の使用率
-    - <code>ScaleInCooldown</code>: 300 秒
-    - <code>ScaleOutCooldown</code>: 300 秒</p>
+- <code>TargetValue</code>: 50% CPU の使用率
+- <code>ScaleInCooldown</code>: 300 秒
+- <code>ScaleOutCooldown</code>: 300 秒</p>
 <ol>
 <li><strong>ステップスケーリングポリシー</strong>: このポリシーは、<code>HasBacklogWithoutCapacity</code> メトリックに基づいて、スケーリング調整のためのステップを定義できます。このポリシーは、推論リクエストがあるがエンドポイントが0インスタンスの場合、インスタンス数を0から1に増やすために作成されています。</li>
 </ol>
 <p>ステップスケーリングポリシーは、<code>HasBacklogWithoutCapacity</code> メトリックに基づいてキャパシティを調整するように定義されています。以下の項目が含まれます:
- - <code>AdjustmentType</code>: ChangeInCapacity 
- - <code>MetricAggregationType</code>: Average 
- - <code>Cooldown</code>: 300 秒
- - <code>StepAdjustments</code>: アラームの大きさに基づいたスケーリング調整を指定しています。</p>
-<p>### 以下は、SageMaker 非同期エンドポイントの自動スケーリングポリシーの例です:</p>
-<p><code>json
-{
-    "ScalingPolicies": [
-        {
-            "PolicyARN": "Your PolicyARN",
-            "PolicyName": "HasBacklogWithoutCapacity-ScalingPolicy",
-            "ServiceNamespace": "sagemaker",
-            "ResourceId": "endpoint/esd-type-c356f91/variant/prod",
-            "ScalableDimension": "sagemaker:variant:DesiredInstanceCount",
-            "PolicyType": "StepScaling",
-            "StepScalingPolicyConfiguration": {
-                "AdjustmentType": "ChangeInCapacity",
-                "StepAdjustments": [
-                    {
-                        "MetricIntervalLowerBound": 0.0,
-                        "ScalingAdjustment": 1
-                    }
-                ],
-                "Cooldown": 300,
-                "MetricAggregationType": "Average"
-            },
-            "Alarms": [
-                {
-                    "AlarmName": "stable-diffusion-hasbacklogwithoutcapacity-alarm",
-                    "AlarmARN": "Your AlarmARN"
-                }
-            ],
-            "CreationTime": "2023-08-14T13:53:10.480000+08:00"
-        },
-        {
-            "PolicyARN": "Your PolicyARN",
-            "PolicyName": "CPUUtil-ScalingPolicy",
-            "ServiceNamespace": "sagemaker",
-            "ResourceId": "endpoint/esd-type-c356f91/variant/prod",
-            "ScalableDimension": "sagemaker:variant:DesiredInstanceCount",
-            "PolicyType": "TargetTrackingScaling",
-            "TargetTrackingScalingPolicyConfiguration": {
-                "TargetValue": 50.0,
-                "CustomizedMetricSpecification": {
-                    "MetricName": "CPUUtilization",
-                    "Namespace": "/aws/sagemaker/Endpoints",
-                    "Dimensions": [
-                        {
-                            "Name": "EndpointName",
-                            "Value": "esd-type-c356f91"
-                        },
-                        {
-                            "Name": "VariantName",
-                            "Value": "prod"
-                        }
-                    ],
-                    "Statistic": "Average",
-                    "Unit": "Percent"
-                },
-                "ScaleOutCooldown": 300,
-                "ScaleInCooldown": 300
-            },
-            "Alarms": [
-                {
-                    "AlarmName": "TargetTracking-endpoint/esd-type-c356f91/variant/prod-AlarmHigh-c915b303-9048-40b2-99a7-f5b7e49ab7c4",
-                    "AlarmARN": "Your AlarmARN"
-                },
-                {
-                    "AlarmName": "TargetTracking-endpoint/esd-type-c356f91/variant/prod-AlarmLow-2fd61f99-c2e5-4ac6-9722-54030c3f0216",
-                    "AlarmARN": "Your AlarmARN"
-                }
-            ],
-            "CreationTime": "2023-08-14T13:53:10.182000+08:00"
-        }
-    ]
-}</code></p>
+- <code>AdjustmentType</code>: ChangeInCapacity 
+- <code>MetricAggregationType</code>: Average 
+- <code>Cooldown</code>: 300 秒
+- <code>StepAdjustments</code>: アラームの大きさに基づいたスケーリング調整を指定しています。</p>
+<h3 id="sagemaker_1">以下は、SageMaker 非同期エンドポイントの自動スケーリングポリシーの例です:</h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;ScalingPolicies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;PolicyARN&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Your PolicyARN&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;PolicyName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HasBacklogWithoutCapacity-ScalingPolicy&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;ServiceNamespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sagemaker&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;ResourceId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;endpoint/esd-type-c356f91/variant/prod&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;ScalableDimension&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sagemaker:variant:DesiredInstanceCount&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;PolicyType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;StepScaling&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;StepScalingPolicyConfiguration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;AdjustmentType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ChangeInCapacity&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;StepAdjustments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">&quot;MetricIntervalLowerBound&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;ScalingAdjustment&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">                </span><span class="nt">&quot;Cooldown&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;MetricAggregationType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Average&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;Alarms&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;AlarmName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stable-diffusion-hasbacklogwithoutcapacity-alarm&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;AlarmARN&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Your AlarmARN&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;CreationTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-08-14T13:53:10.480000+08:00&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;PolicyARN&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Your PolicyARN&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;PolicyName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CPUUtil-ScalingPolicy&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;ServiceNamespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sagemaker&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;ResourceId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;endpoint/esd-type-c356f91/variant/prod&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;ScalableDimension&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sagemaker:variant:DesiredInstanceCount&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;PolicyType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TargetTrackingScaling&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;TargetTrackingScalingPolicyConfiguration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;TargetValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">50.0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;CustomizedMetricSpecification&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;MetricName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CPUUtilization&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;Namespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/aws/sagemaker/Endpoints&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;Dimensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EndpointName&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;Value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;esd-type-c356f91&quot;</span>
+<span class="w">                        </span><span class="p">},</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VariantName&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;Value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;prod&quot;</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">],</span>
+<span class="w">                    </span><span class="nt">&quot;Statistic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Average&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;Unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Percent&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;ScaleOutCooldown&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;ScaleInCooldown&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;Alarms&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;AlarmName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TargetTracking-endpoint/esd-type-c356f91/variant/prod-AlarmHigh-c915b303-9048-40b2-99a7-f5b7e49ab7c4&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;AlarmARN&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Your AlarmARN&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;AlarmName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TargetTracking-endpoint/esd-type-c356f91/variant/prod-AlarmLow-2fd61f99-c2e5-4ac6-9722-54030c3f0216&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;AlarmARN&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Your AlarmARN&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;CreationTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-08-14T13:53:10.182000+08:00&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 
 
 

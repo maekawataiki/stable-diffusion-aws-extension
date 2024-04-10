@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#extension-for-stable-diffusion-on-aws" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -771,6 +776,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ソリューションをアンインストールする
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -781,6 +799,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-management-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Management Console を使ってスタックをアンインストールする
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-command-line-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Command Line Interface を使ってスタックをアンインストールする
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1411,6 +1466,34 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-management-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Management Console を使ってスタックをアンインストールする
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-command-line-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Command Line Interface を使ってスタックをアンインストールする
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1428,20 +1511,20 @@
   
 
 
-  <h1>ソリューションをアンインストールする</h1>
-
-<p># Extension for Stable Diffusion on AWS をアンインストールする</p>
-<p>!!! Warning " 警告"
-    ソリューションをアンインストールする前に、<a href="../user-guide/CloudAssetsManage/">メインタブ </a> の「デプロイされたエンドポイントを削除する」を参照して、このソリューションによってデプロイされたすべての Amazon SageMaker エンドポイントを手動で削除してください。ソリューションをアンインストールすると、モデルのトレーニング、ファインチューニング、推論のログと関係性を示す DynamoDB テーブル、AWS Lambda 関数、AWS ステップ機能などが同時に削除されます。</p>
+<h1 id="extension-for-stable-diffusion-on-aws">Extension for Stable Diffusion on AWS をアンインストールする</h1>
+<div class="admonition warning">
+<p class="admonition-title"> 警告</p>
+</div>
+<p>ソリューションをアンインストールする前に、<a href="../user-guide/CloudAssetsManage/">メインタブ </a> の「デプロイされたエンドポイントを削除する」を参照して、このソリューションによってデプロイされたすべての Amazon SageMaker エンドポイントを手動で削除してください。ソリューションをアンインストールすると、モデルのトレーニング、ファインチューニング、推論のログと関係性を示す DynamoDB テーブル、AWS Lambda 関数、AWS ステップ機能などが同時に削除されます。</p>
 <p>Extension for Stable Diffusion on AWS をアンインストールするには、AWS CloudFormation スタックを削除する必要があります。</p>
 <p>AWS Management Console または AWS Command Line Interface (AWS CLI) を使用して CloudFormation スタックを削除できます。</p>
-<p>## AWS Management Console を使ってスタックをアンインストールする</p>
+<h2 id="aws-management-console">AWS Management Console を使ってスタックをアンインストールする</h2>
 <ol>
 <li><a href="https://console.aws.amazon.com/cloudformation/home">AWS CloudFormation</a> コンソールにサインインします。</li>
 <li>このソリューションのインストール親スタックを選択します。</li>
 <li>「削除」を選択します。</li>
 </ol>
-<p>## AWS Command Line Interface を使ってスタックをアンインストールする</p>
+<h2 id="aws-command-line-interface">AWS Command Line Interface を使ってスタックをアンインストールする</h2>
 <p>AWS Command Line Interface (AWS CLI) が環境で利用可能かどうかを確認してください。インストール手順については、<em>AWS CLI ユーザーガイド</em>の <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">AWS Command Line Interface とは </a> を参照してください。AWS CLI が利用可能であることを確認したら、次のコマンドを実行してください。</p>
 <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>cloudformation<span class="w"> </span>delete-stack<span class="w"> </span>--stack-name<span class="w"> </span>&lt;installation-stack-name&gt;<span class="w"> </span>--region<span class="w"> </span>&lt;aws-region&gt;<span class="w"> </span>
 </code></pre></div>

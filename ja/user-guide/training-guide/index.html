@@ -966,6 +966,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    トレーニングガイド
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -975,6 +986,76 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      訓練ユーザーガイド
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="訓練ユーザーガイド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      基礎モデルの準備
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      データセットの準備
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lora" class="md-nav__link">
+    <span class="md-ellipsis">
+      LoRA モデルの訓練
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      訓練 API の呼び出し
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1423,6 +1504,65 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      訓練ユーザーガイド
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="訓練ユーザーガイド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      基礎モデルの準備
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      データセットの準備
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lora" class="md-nav__link">
+    <span class="md-ellipsis">
+      LoRA モデルの訓練
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      訓練 API の呼び出し
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1441,37 +1581,36 @@
 
 <h1 id="_1">訓練ガイド</h1>
 <p>この訓練は <a href="https://github.com/kohya-ss/sd-scripts">Kohya-SS</a> に基づいています。Kohya-SS は、一般的な GPU でも使えるように設計され、Stable Diffusion WebUI と互換性がある、Stable Diffusion モデルの微調整用の Python ライブラリです。このソリューションは、SDXL 及び SD 1.5 上で LoRA 訓練を行うことができます。</p>
-<p>## 訓練ユーザーガイド
- <img alt="Kohya Training" src="../../images/Kohya_training.png" /> </p>
-<p>### 基礎モデルの準備
- <strong>Model</strong> のドロップダウンリストを更新してチェックし、このトレーニングセッションに必要な基礎モデルが利用可能であることを確認してください。利用可能でない場合は、<a href="../CloudAssetsManage/">クラウドアセット管理 </a> の <strong>Upload Models</strong> を使って、<em>SD Checkpoints</em> カテゴリの下に基礎モデルをアップロードすることができます。</p>
+<h2 id="_2">訓練ユーザーガイド</h2>
+<p><img alt="Kohya Training" src="../../images/Kohya_training.png" /> </p>
+<h3 id="_3">基礎モデルの準備</h3>
+<p><strong>Model</strong> のドロップダウンリストを更新してチェックし、このトレーニングセッションに必要な基礎モデルが利用可能であることを確認してください。利用可能でない場合は、<a href="../CloudAssetsManage/">クラウドアセット管理 </a> の <strong>Upload Models</strong> を使って、<em>SD Checkpoints</em> カテゴリの下に基礎モデルをアップロードすることができます。</p>
 <p>また、以下のコマンドを使って、ローカルの SD モデルを S3 バケットにアップロードすることもできます。</p>
 <p>ローカルの SD モデルを S3 バケットにアップロードするコマンド
- ``` </p>
-<h1 id="_2">認証情報の設定</h1>
-<p>aws configure </p>
-<h1 id="sd-s3">ローカルの SD モデルを S3 バケットにコピー</h1>
-<p>aws s3 cp *safetensors s3://<bucket_path>/<model_path> 
- ``` </p>
-<p>### データセットの準備
-データセットは、モデルの訓練と微調整には不可欠な入力です。</p>
+<div class="highlight"><pre><span></span><code># 認証情報の設定
+aws configure 
+# ローカルの SD モデルを S3 バケットにコピー
+aws s3 cp *safetensors s3://&lt;bucket_path&gt;/&lt;model_path&gt; 
+</code></pre></div></p>
+<h3 id="_4">データセットの準備</h3>
+<p>データセットは、モデルの訓練と微調整には不可欠な入力です。</p>
 <p>特定のイメージスタイルを含む LoRA モデルを訓練する例として、ユーザーは事前にイメージセットを準備する必要があります。これらのイメージは、一貫したテーマやスタイルを持ち、中程度の解像度で、数十枚あれば十分です。このイメージセットは、ベースモデルの機能に合わせて前処理する必要があります。例えば、SD ベースの LoRA モデルの訓練タスクに備えて、512x512 ピクセルにイメージをトリミングすることをお勧めします。</p>
 <p>前処理の後は、データセットのイメージに注釈を付ける必要があります。つまり、各トレーニングイメージにテキストによる説明を追加し、対応するイメージと同じ名前のテキストファイルに保存します。イメージ注釈は、SD WebUI の組み込みイメージ注釈機能やマルチモーダル大規模モデルを使って行うことができます。モデルによる注釈は完璧ではない可能性があるため、最終的な効果を確保するためには手動での確認と調整が推奨されます。</p>
 <p><a href="../CloudAssetsManage/">クラウドアセット管理 </a> の <strong>Dataset Management</strong> を参照して、データセットをクラウドにアップロードしてください。</p>
 <p>また、AWSCLI コマンドを実行してデータセットを S3 バケットにアップロードすることもできます。
- <div class="highlight"><pre><span></span><code>aws s3 sync local_folder_name s3://&lt;bucket_name&gt;/&lt;folder_name&gt; 
+<div class="highlight"><pre><span></span><code>aws s3 sync local_folder_name s3://&lt;bucket_name&gt;/&lt;folder_name&gt; 
 </code></pre></div></p>
 <blockquote>
 <p><strong>注意:</strong> フォルダ名は数字とアンダースコアで始まる必要があります。例 : 100_demo。各イメージは、同じ名前の txt ファイルと対で存在する必要があります。例 : demo1.png, demo1.txt。demo1.txt には demo1.png のキャプションが含まれています。</p>
 </blockquote>
-<p>### LoRA モデルの訓練
-ベースモデルとデータセットがアップロードできたら、以下の手順に従ってください:
- 1. <strong>Train Management</strong> タブに移動し、<strong>Training Instance Type</strong> で希望の訓練インスタンスタイプを選択し、<strong>FM Type</strong> フィールドでこの訓練ジョブに使用するベースモデルのタイプ (Stable Diffusion 1.5 ベースまたは Stable Diffusion XL ベース)を選択します。次に、<strong>Model</strong> オプションを使ってこのトレーニングセッションに使用するベースモデルを選択し、<strong>Dataset</strong> オプションを使ってこのトレーニングセッションに依存するデータセットを選択します。
- 2. <strong>config_params</strong> の訓練パラメータを更新し、<strong>Format config Params</strong> をクリックして更新したパラムファイルの形式を確認・修正します。
- 3. <strong>Create Training Job</strong> をクリックして訓練ジョブを送信します。
- 4. <strong>Trainings List</strong> を更新して訓練ジョブの状況を確認します。
- 5. 正常に訓練した LoRA モデルは、<strong>txt2img</strong> や <strong>img2img</strong> で直接選択して、画像生成に使うことができます。詳細は <a href="../txt2img-guide/">txt2img ガイド </a> や <a href="../img2img-guide/">img2img ガイド </a> を参照してください。</p>
-<p>### 訓練 API の呼び出し</p>
+<h3 id="lora">LoRA モデルの訓練</h3>
+<p>ベースモデルとデータセットがアップロードできたら、以下の手順に従ってください:
+1. <strong>Train Management</strong> タブに移動し、<strong>Training Instance Type</strong> で希望の訓練インスタンスタイプを選択し、<strong>FM Type</strong> フィールドでこの訓練ジョブに使用するベースモデルのタイプ (Stable Diffusion 1.5 ベースまたは Stable Diffusion XL ベース)を選択します。次に、<strong>Model</strong> オプションを使ってこのトレーニングセッションに使用するベースモデルを選択し、<strong>Dataset</strong> オプションを使ってこのトレーニングセッションに依存するデータセットを選択します。
+2. <strong>config_params</strong> の訓練パラメータを更新し、<strong>Format config Params</strong> をクリックして更新したパラムファイルの形式を確認・修正します。
+3. <strong>Create Training Job</strong> をクリックして訓練ジョブを送信します。
+4. <strong>Trainings List</strong> を更新して訓練ジョブの状況を確認します。
+5. 正常に訓練した LoRA モデルは、<strong>txt2img</strong> や <strong>img2img</strong> で直接選択して、画像生成に使うことができます。詳細は <a href="../txt2img-guide/">txt2img ガイド </a> や <a href="../img2img-guide/">img2img ガイド </a> を参照してください。</p>
+<h3 id="api">訓練 API の呼び出し</h3>
 <p><a href="https://awslabs.github.io/stable-diffusion-aws-extension/en/developer-guide/api/1.5.0/">API ドキュメント </a> を参照して、訓練 API を呼び出すことができます。</p>
 
 

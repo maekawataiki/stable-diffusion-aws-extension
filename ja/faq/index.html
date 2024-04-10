@@ -1337,6 +1337,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1346,6 +1357,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      一般
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      インストールと設定
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      価格
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1421,6 +1478,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      一般
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      インストールと設定
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      価格
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1438,7 +1530,7 @@
 
 
 <h1 id="_1">よくある質問</h1>
-<p>## 一般</p>
+<h2 id="_2">一般</h2>
 <p><strong>Q: Extension for Stable Diffusion on AWS とは何ですか ?</strong> </p>
 <p><em>Extension for Stable Diffusion on AWS</em> は、Stable Diffusion WebUI のモデルトレーニング、推論、微調整のワークロードを、ローカルサーバーから Amazon SageMaker に移行するのを支援することを目的とした AWS ソリューションです。拡張機能と AWSCloudFormation テンプレートを提供することで、柔軟なクラウドリソースを活用し、モデルの反復処理を加速し、単一サーバーデプロイに関連するパフォーマンスボトルネックを軽減します。</p>
 <p><strong>Q: このソリューションが対応している Stable Diffusion WebUI の標準機能/サードパーティ拡張機能は何ですか ?</strong> </p>
@@ -1447,7 +1539,7 @@
 <p>このソリューションは <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache-2.0</a> ライセンスの下で提供されています。これは Apache Software Foundation が記述した許可ベースのフリーソフトウェアライセンスです。ユーザーがソフトウェアを目的のために使用、配布、変更し、ロイヤリティの心配なく変更版を配布することを許可しています。</p>
 <p><strong>Q: 機能要求やバグレポートはどのように提出できますか ?</strong> </p>
 <p>GitHub の issue を通して機能要求やバグレポートを提出できます。<a href="https://github.com/awslabs/stable-diffusion-aws-extension/issues/new?assignees=&amp;labels=feature-request%2Cneeds-triage&amp;projects=&amp;template=feature_request.yml&amp;title=%28module+name%29%3A+%28short+issue+description%29">機能要求のテンプレート </a> と<a href="https://github.com/awslabs/stable-diffusion-aws-extension/issues/new?assignees=&amp;labels=bug%2Cneeds-triage&amp;projects=&amp;template=bug_report.yml&amp;title=%28module+name%29%3A+%28short+issue+description%29">バグレポートのテンプレート </a> をご覧ください。</p>
-<p>## インストールと設定</p>
+<h2 id="_3">インストールと設定</h2>
 <p><strong>Q: サードパーティプラグインとこのソリューションのプラグインをインストールする際に特定の順序はありますか ?</strong> </p>
 <p>現在のところ、このソリューションがサポートするサードパーティ拡張機能をまずインストールし、その後にこのソリューションの拡張機能をインストールすることをお勧めしています。ただし、インストール順序は変更できます。その場合、機能が正常に動作するために WebUI の再起動が必要です。</p>
 <p><strong>Q: WebUI を正常にインストールした後、ブラウザからアクセスできません。どのように解決すればよいですか ?</strong> </p>
@@ -1458,8 +1550,8 @@
 <p>新しいシークレットブラウザウィンドウを開き、別のユーザー資格情報でログインすることで、ユーザーを切り替えることができます。</p>
 <p><strong>Q: ローカルの推論オプションを削除し、WebUI がクラウド推論のみをサポートするようにするにはどうすればよいですか ?</strong> </p>
 <p>WebUI を開き、<strong>設定</strong> タブに移動し、左側のセッションバーの<em>ユーザーインターフェイス</em>セクションを選択します。<code>[info] Quick settings list (setting entries that appear at the top of page rather than in settings tab) (requires Reload UI)</code> フィールドを見つけ、'sd_model_checkpoint' のチェックを外します。その後、'設定を適用'をクリックし、WebUI をターミナルから再読み込みします。WebUI を再読み込みすると、左上の checkpoint 選択ドロップダウンリストが消え、ユーザーはクラウド推論オプションのみを使用できるようになります。
- <img alt="generate-lock-step" src="../images/generate-lock-step.png" /> </p>
-<p>## 価格</p>
+<img alt="generate-lock-step" src="../images/generate-lock-step.png" /> </p>
+<h2 id="_4">価格</h2>
 <p><strong>Q: このソリューションの使用料はどのように請求されますか ?</strong> </p>
 <p>このソリューションは無料で使用できます。使用する AWS サービスのコストのみ負担することになります。最小料金やセットアップ料金はありません。詳細なコストについては<a href="../cost/">コスト見積もり</a> を参照してください。</p>
 

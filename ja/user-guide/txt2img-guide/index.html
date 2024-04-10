@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#txt2img" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -895,6 +900,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    txt2imgガイド
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -905,6 +923,76 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#txt2img_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      txt2img ユーザーガイド
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="txt2img ユーザーガイド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一般的な推論シナリオ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      連続推論シナリオ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lora" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lora などの追加モデルを使用した推論
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      推論ジョブの履歴
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1413,6 +1501,67 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#txt2img_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      txt2img ユーザーガイド
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="txt2img ユーザーガイド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一般的な推論シナリオ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      連続推論シナリオ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lora" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lora などの追加モデルを使用した推論
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      推論ジョブの履歴
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1430,18 +1579,16 @@
   
 
 
-  <h1>txt2imgガイド</h1>
-
-<p># txt2img ガイド</p>
+<h1 id="txt2img">txt2img ガイド</h1>
 <p><strong>txt2img</strong> タブを開くと、txt2img の ネイティブ領域と新しく追加された "Amazon SageMaker Inference" パネルの機能を組み合わせて、テキストから画像への推論を行うことができます。これにより、txt2img の推論タスクにクラウドリソースを呼び出すことができます。</p>
-<p>## txt2img ユーザーガイド</p>
-<p>### 一般的な推論シナリオ</p>
+<h2 id="txt2img_1">txt2img ユーザーガイド</h2>
+<h3 id="_1">一般的な推論シナリオ</h3>
 <ol>
 <li><strong>txt2img</strong> タブに移動し、<strong>Amazon SageMaker Inference</strong> パネルを見つけます。 
- <img alt="Sagemaker Inference 面板 " src="../../images/txt2img-inference.png" /> </li>
+<img alt="Sagemaker Inference 面板 " src="../../images/txt2img-inference.png" /> </li>
 <li>
 <p>推論に必要なパラメーターを入力します。ローカルでの推論と同様に、モデル名 (Stable Diffusion チェックポイント、Extra Networks:Lora、Hypernetworks、Textural Inversion、VAE)、プロンプト、ネガティブプロンプト、サンプリングパラメーター、推論パラメーターなど、ネイティブの <strong>txt2img</strong> の推論パラメーターをカスタマイズできます。VAE モデルの切り替えは、<strong>設定</strong> タブに移動し、左側のパネルで <strong>Stable Diffusion</strong> を選択し、<strong>SD VAE</strong> で VAE モデルを選択します (VAE モデル : Automatic = チェックポイントと同じ名前のものを使用 ; None = チェックポイントから VAE を使用)。
- <img alt="Settings 面板 " src="../../images/setting-vae.png" /> </p>
+<img alt="Settings 面板 " src="../../images/setting-vae.png" /> </p>
 <div class="admonition important 注意">
 <p class="admonition-title">Important</p>
 <p>推論で使用されるモデルファイルは、生成前にクラウドにアップロードされている必要があります。これについては、<strong>クラウドアセット管理</strong> の章の説明を参照してください。現在のモデルリストには、ローカルおよびクラウドベースのモデルのオプションが表示されています。クラウドベースの推論の場合、<strong>sagemaker</strong> というキーワードが付いたものを選択することをお勧めします。これは、それらがクラウド上にアップロードされていることを示しています。</p>
@@ -1449,7 +1596,7 @@
 </li>
 <li>
 <p><strong>クラウド上で使用される Stable Diffusion チェックポイントモデル</strong> を選択し、<strong>Generate</strong> ボタンは <strong>Generate on Cloud</strong> に変わります。
- <img alt="Generate button 面板 " src="../../images/txt2img-generate-button.png" /> </p>
+<img alt="Generate button 面板 " src="../../images/txt2img-generate-button.png" /> </p>
 <div class="admonition important 注意">
 <p class="admonition-title">Important</p>
 <p>このフィールドは必須です。 </p>
@@ -1466,17 +1613,21 @@
 </li>
 </ol>
 <p><img alt="generate results" src="../../images/generate-results.png" /> </p>
-<p>### 連続推論シナリオ
- 1. <strong>一般的な推論シナリオ</strong> に従って、パラメーターを入力し、<strong>Generate on Cloud</strong> をクリックして初回の推論タスクを送信します。
- 2. 右側の "Output" セクションに新しい <strong>Inference ID</strong> が表示されるのを待ちます。
- 3. 新しい <strong>Inference ID</strong> が表示されたら、<strong>Generate on Cloud</strong> をもう一度クリックして次の推論タスクを実行できます。</p>
+<h3 id="_2">連続推論シナリオ</h3>
+<ol>
+<li><strong>一般的な推論シナリオ</strong> に従って、パラメーターを入力し、<strong>Generate on Cloud</strong> をクリックして初回の推論タスクを送信します。</li>
+<li>右側の "Output" セクションに新しい <strong>Inference ID</strong> が表示されるのを待ちます。</li>
+<li>新しい <strong>Inference ID</strong> が表示されたら、<strong>Generate on Cloud</strong> をもう一度クリックして次の推論タスクを実行できます。</li>
+</ol>
 <p><img alt="generate results" src="../../images/continue-inference.png" /> </p>
-<p>### Lora などの追加モデルを使用した推論
- 1. WebUI のネイティブバージョンに従い、必要なモデル (Textual Inversion、Hypernetworks、Checkpoints、Lora モデルなど)のコピーをローカルマシンにアップロードします。
- 2. <a href="../CloudAssetsManage/"> モデルのアップロード </a> に従って、対応するモデルをクラウドにアップロードします。
- 3. 必要なモデルを選択し、プロンプトフィールドでモデルの重みを調整し、<strong>Generate on Cloud</strong> をクリックして画像を推論します。</p>
-<p>## 推論ジョブの履歴
-デフォルトでは、最新の 10 件の推論ジョブが表示されます。命名形式は Time-Type-Status-UUID です。<strong>Show All</strong> をチェックすると、アカウントが持つすべての推論ジョブが表示されます。<strong>Advanced Inference Job filter</strong> をチェックし、必要に応じてフィルターを適用すると、ユーザーがカスタマイズした推論ジョブのリストが表示されます。</p>
+<h3 id="lora">Lora などの追加モデルを使用した推論</h3>
+<ol>
+<li>WebUI のネイティブバージョンに従い、必要なモデル (Textual Inversion、Hypernetworks、Checkpoints、Lora モデルなど)のコピーをローカルマシンにアップロードします。</li>
+<li><a href="../CloudAssetsManage/"> モデルのアップロード </a> に従って、対応するモデルをクラウドにアップロードします。</li>
+<li>必要なモデルを選択し、プロンプトフィールドでモデルの重みを調整し、<strong>Generate on Cloud</strong> をクリックして画像を推論します。</li>
+</ol>
+<h2 id="_3">推論ジョブの履歴</h2>
+<p>デフォルトでは、最新の 10 件の推論ジョブが表示されます。命名形式は Time-Type-Status-UUID です。<strong>Show All</strong> をチェックすると、アカウントが持つすべての推論ジョブが表示されます。<strong>Advanced Inference Job filter</strong> をチェックし、必要に応じてフィルターを適用すると、ユーザーがカスタマイズした推論ジョブのリストが表示されます。</p>
 
 
 

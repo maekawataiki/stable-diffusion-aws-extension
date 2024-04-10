@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#aws-stable-diffusion-webui" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -832,6 +837,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    準備
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -842,6 +860,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      前提条件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      手順
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1413,6 +1468,34 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      前提条件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      手順
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1430,17 +1513,17 @@
   
 
 
-  <h1>準備</h1>
-
-<p># AWS アカウントと Stable Diffusion WebUI を接続する</p>
-<p>## 前提条件
-ソリューションのデプロイを正常に完了する必要があります。</p>
-<p>## 手順
- 1. <a href="https://console.aws.amazon.com/cloudformation/">AWS CloudFormation コンソール </a> にアクセスします。
- 2. ソリューションで作成したルート スタックを選択し、ネストされたスタックではなく、スタック リストから選択します。ネストされたスタックは、リスト内の名前の横に 'NESTED' と表示されます。
- 3. <strong>出力</strong> タブを開き、<strong>APIGatewayUrl</strong> の URL をコピーします。
- 4. <strong>Stable Diffusion WebUI</strong> を開き、<strong>Amazon SageMaker</strong> タブに移動します。コピーした手順 3 の URL を <strong>API URL</strong> フィールドに貼り付けます。手順 3 でコピーした API トークンを <strong>API トークン</strong> フィールドに貼り付けます。<strong>設定の更新</strong> をクリックすると、<em>設定がローカル設定に更新されました !</em> というメッセージが表示されます。
- 5. <strong>接続テスト</strong> をクリックすると、<em>接続に成功しました</em> というメッセージが表示されます。これにより、Stable Diffusion WebUI がデプロイされたバックエンドの AWS アカウントに正常に接続されていることが確認できます。</p>
+<h1 id="aws-stable-diffusion-webui">AWS アカウントと Stable Diffusion WebUI を接続する</h1>
+<h2 id="_1">前提条件</h2>
+<p>ソリューションのデプロイを正常に完了する必要があります。</p>
+<h2 id="_2">手順</h2>
+<ol>
+<li><a href="https://console.aws.amazon.com/cloudformation/">AWS CloudFormation コンソール </a> にアクセスします。</li>
+<li>ソリューションで作成したルート スタックを選択し、ネストされたスタックではなく、スタック リストから選択します。ネストされたスタックは、リスト内の名前の横に 'NESTED' と表示されます。</li>
+<li><strong>出力</strong> タブを開き、<strong>APIGatewayUrl</strong> の URL をコピーします。</li>
+<li><strong>Stable Diffusion WebUI</strong> を開き、<strong>Amazon SageMaker</strong> タブに移動します。コピーした手順 3 の URL を <strong>API URL</strong> フィールドに貼り付けます。手順 3 でコピーした API トークンを <strong>API トークン</strong> フィールドに貼り付けます。<strong>設定の更新</strong> をクリックすると、<em>設定がローカル設定に更新されました !</em> というメッセージが表示されます。</li>
+<li><strong>接続テスト</strong> をクリックすると、<em>接続に成功しました</em> というメッセージが表示されます。これにより、Stable Diffusion WebUI がデプロイされたバックエンドの AWS アカウントに正常に接続されていることが確認できます。</li>
+</ol>
 
 
 

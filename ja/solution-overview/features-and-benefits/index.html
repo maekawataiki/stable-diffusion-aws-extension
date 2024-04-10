@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -397,6 +402,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    機能と利点
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -406,6 +422,41 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      機能
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      利点
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1414,6 +1465,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      機能
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      利点
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1432,14 +1509,14 @@
 
   <h1>機能と利点</h1>
 
-<p>## 機能
-このソリューションは、Stable Diffusion WebUI の以下のネイティブ機能/サードパーティ拡張機能のクラウドベースのオペレーションをサポートしています:</p>
+<h2 id="_1">機能</h2>
+<p>このソリューションは、Stable Diffusion WebUI の以下のネイティブ機能/サードパーティ拡張機能のクラウドベースのオペレーションをサポートしています:</p>
 <table>
 <thead>
 <tr>
-<th>** 機能 **</th>
-<th>** サポートバージョン **</th>
-<th>** 注意事項 **</th>
+<th><strong>機能</strong></th>
+<th><strong>サポートバージョン</strong></th>
+<th><strong>注意事項</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -1495,14 +1572,16 @@
 </tr>
 </tbody>
 </table>
-<p>## 利点
- * ** 簡単なインストール **: このソリューションは CloudFormation を活用して AWS ミドルウェアを簡単にデプロイできます。ネイティブの Stable Diffusion WebUI (WebUI) 機能とサードパーティ拡張機能のインストールと併せて、ユーザーは Amazon SageMaker のクラウドリソースを推論、トレーニング、微調整タスクに迅速に活用できます。</p>
+<h2 id="_2">利点</h2>
 <ul>
 <li>
-<p>** コミュニティネイティブ **: このソリューションは拡張機能として実装されているため、ユーザーは変更を加えずに既存の WebUI を継続して使用できます。さらに、このソリューションのコードはオープンソースで、非侵襲的なデザインに従っているため、ユーザーは ControlNet や LoRa などの人気プラグインなど、コミュニティ関連の機能の反復に追随できます。</p>
+<p><strong>簡単なインストール</strong>: このソリューションは CloudFormation を活用して AWS ミドルウェアを簡単にデプロイできます。ネイティブの Stable Diffusion WebUI (WebUI) 機能とサードパーティ拡張機能のインストールと併せて、ユーザーは Amazon SageMaker のクラウドリソースを推論、トレーニング、微調整タスクに迅速に活用できます。</p>
 </li>
 <li>
-<p>** 高スケーラビリティ **: このソリューションは WebUI インターフェースとバックエンドを分離することで、WebUI が GPU の制限なしにサポートされるターミナルで起動できるようにしています。既存のトレーニング、推論、その他のタスクを提供された拡張機能機能を通じて Amazon SageMaker に移行できるため、ユーザーは弾力的なコンピューティングリソース、コスト削減、柔軟性、スケーラビリティを享受できます。</p>
+<p><strong>コミュニティネイティブ</strong>: このソリューションは拡張機能として実装されているため、ユーザーは変更を加えずに既存の WebUI を継続して使用できます。さらに、このソリューションのコードはオープンソースで、非侵襲的なデザインに従っているため、ユーザーは ControlNet や LoRa などの人気プラグインなど、コミュニティ関連の機能の反復に追随できます。</p>
+</li>
+<li>
+<p><strong>高スケーラビリティ</strong>: このソリューションは WebUI インターフェースとバックエンドを分離することで、WebUI が GPU の制限なしにサポートされるターミナルで起動できるようにしています。既存のトレーニング、推論、その他のタスクを提供された拡張機能機能を通じて Amazon SageMaker に移行できるため、ユーザーは弾力的なコンピューティングリソース、コスト削減、柔軟性、スケーラビリティを享受できます。</p>
 </li>
 </ul>
 
