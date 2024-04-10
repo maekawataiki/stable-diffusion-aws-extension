@@ -1548,15 +1548,13 @@
 <h2 id="_2">モデルのアップロード</h2>
 <p>推論用の追加モデルを使用するには、以下の2つの方法でモデルをアップロードできます。それぞれ <a href="../txt2img-guide/">txt2img</a> または <a href="../img2img-guide/">img2img</a> のガイドに従って、必要に応じて追加モデルを使用して推論を行います。</p>
 <p>方法 1: 
-1. Stable Diffusion WebUI の「 Amazon SageMaker 」メインタブに移動し、「 Cloud Models Management 」セッションを見つけます。
-<img alt="WebUI からのモデルアップロード " src="../../images/UploadFromWebUI.png" /> 
+1. Stable Diffusion WebUI の「 Amazon SageMaker 」メインタブに移動し、「 Cloud Models Management 」セッションを見つけます。<img alt="WebUI からのモデルアップロード " src="../../images/UploadFromWebUI.png" /> 
 2. 「 from WebUI 」タブを選択します。これは、WebUI サービスがデプロイされているモデルファイルパスからモデルをアップロードすることを意味します。
 3. 対応するモデルのテキストボックスに、WebUI サービスがデプロイされているモデルのパスを入力します。（<strong>注意</strong>: 複数のローカルモデルパスをテキストボックスに入力することで、複数種類のモデルをアップロードできます。）
 4. 「 Upload Models to Cloud 」をクリックしてアップロードプロセスを開始します。
 5. アップロードが完了すると、左右に通知メッセージが表示されます。</p>
 <p>方法 2: 
-1. Stable Diffusion WebUI の「 Amazon SageMaker 」メインタブに移動し、「 Cloud Models Management 」セッションを見つけます。
-<img alt=" コンピュータからのモデルアップロード " src="../../images/UploadFromComputer.png" /> 
+1. Stable Diffusion WebUI の「 Amazon SageMaker 」メインタブに移動し、「 Cloud Models Management 」セッションを見つけます。<img alt=" コンピュータからのモデルアップロード " src="../../images/UploadFromComputer.png" /> 
 2. 「 from Laptop 」タブを選択します。これは、WebUI にアクセスするためのローカルパスからモデルをアップロードすることを意味します。
 3. アップロードするモデルのタイプを選択します。現在、6種類のモデルがサポートされています : SD チェックポイント、Textual Inversion、LoRA モデル、ControlNet モデル、Hypernetwork、VAE 
 4. ローカルで選択したモデルファイルをアップロードします。（<strong>注意</strong>: 複数のモデルを選択できますが、ブラウザの制限により、10 ファイル以内、合計サイズは 8GB 以内にすることをお勧めします。）
@@ -1564,8 +1562,7 @@
 6. アップロードは、ファイルサイズと数量に応じて非同期的に分割されます。各部分のアップロードが完了するたびに、「 Choose File 」ボタンの下に通知が表示されます。</p>
 <p>方法 3: 
 1. Stable Diffusion WebUI の「 Amazon SageMaker 」メインタブに移動し、「 Cloud Models Management 」セッションを見つけます。
-2. 「 from URL 」タブを選択します。このオプションにより、モデルがダウンロードされている URL から S3 にモデルをアップロードできます。
-<img alt="URL からのモデルアップロード " src="../../images/UploadFromURL.png" /> 
+2. 「 from URL 」タブを選択します。このオプションにより、モデルがダウンロードされている URL から S3 にモデルをアップロードできます。<img alt="URL からのモデルアップロード " src="../../images/UploadFromURL.png" /> 
 3. アップロードするモデルのタイプを選択します。現在、6種類のモデルがサポートされています : SD チェックポイント、Textual Inversion、LoRA モデル、ControlNet モデル、Hypernetwork、VAE 
 4. 「 URL list (Comma-separated in English) 」入力ボックスに、コンマ区切りの形式で複数のモデルダウンロード URL を入力します。
 5. 「 Models Description (Optional) 」入力ボックスに、JSON フォーマットの説明(オプション)を入力します。（<strong>注意</strong>: 複数のモデルファイルを選択できますが、Lambda のメモリとスレッド制限により、5ファイル以内、合計サイズ 12GB 以内にすることをお勧めします。）
